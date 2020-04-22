@@ -37,11 +37,11 @@ public class MagnetPoint : MonoBehaviour
         else if (isMagnetized == false && forceFactor == 0f && Input.GetMouseButtonDown(0))
         {
             isMagnetized = true;
-            forceFactor = 15000f;
+            forceFactor = 25000f;
         }
         else if (isMagnetized == true && forceFactor == 0f && Input.GetMouseButtonDown(0))
         {
-            forceFactor = 15000f;
+            forceFactor = 25000f;
         }
         else if (isMagnetized == false)
         {

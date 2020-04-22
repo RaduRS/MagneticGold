@@ -32,6 +32,7 @@ public class Magnet : MonoBehaviour
             goldScript = collision.gameObject.GetComponent<GoldNugget>();
 
             //goldScript.rb.constraints = RigidbodyConstraints.FreezeAll;
+
         }
         
     }

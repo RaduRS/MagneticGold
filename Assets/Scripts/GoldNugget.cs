@@ -3,12 +3,10 @@
 public class GoldNugget : MonoBehaviour
 {
     public Rigidbody rb;
-    public SphereCollider sphere;
-    public PhysicMaterial sticky;
 
     // Update is called once per frame
     void Update()
     {
-        
+        rb.AddForce(Physics.gravity * 2f, ForceMode.Acceleration);
     }
 }
