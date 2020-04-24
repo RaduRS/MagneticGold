@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceFactor: 0
+  sphere: {fileID: 119761191}
   isMagnetized: 0
   offset: {x: 0, y: 4, z: 0}
 --- !u!135 &119761191
@@ -426,7 +427,7 @@ GameObject:
   - component: {fileID: 651443741}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1471,7 +1472,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 15
   maxHold: 0
-  margnetPointScript: {fileID: 0}
 --- !u!1001 &2070740590
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -6,10 +6,13 @@ public class Magnet : MonoBehaviour
     private GoldNugget goldScript;
     public float maxHold = 0f;
 
-    public MagnetPoint margnetPointScript;
+    private GameObject magnetpoint;
+    private MagnetPoint margnetPointScript;
+
     // Start is called before the first frame update
     private void Start()
     {
+        magnetpoint = GameObject.Find("MagnetPoint");
     }
 
     // Update is called once per frame
@@ -22,11 +25,14 @@ public class Magnet : MonoBehaviour
 
         transform.Translate(movement * Time.deltaTime * moveSpeed);
 
-        if (maxHold >= 6f)
+        /*if (maxHold >= 6f)
         {
-            margnetPointScript = gameObject.GetComponent<MagnetPoint>();
-            margnetPointScript.forceFactor = 0f;
+            margnetPointScript = magnetpoint.GetComponent<MagnetPoint>();
+            margnetPointScript.sphere.enabled = false;
         }
+        */
+
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -42,4 +48,6 @@ public class Magnet : MonoBehaviour
 
         }
     }
+
+
 }
