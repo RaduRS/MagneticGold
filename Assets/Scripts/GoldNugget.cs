@@ -5,7 +5,7 @@ public class GoldNugget : MonoBehaviour
     public Rigidbody rb;
     public int count = 1;
     public bool isActive = true;
-    public bool isTouching = true;
+    public bool isTouching = false;
     public bool groundTouch = false;
     public Magnet magnetScript;
     public GameObject magnet;
@@ -24,10 +24,18 @@ public class GoldNugget : MonoBehaviour
     {
         rb.AddForce(Physics.gravity * 2f, ForceMode.Acceleration);
 
-        if (isActive == false)
+
+
+        if(isActive == false)
         {
             count = 0;
         }
+
+        if(isActive == true)
+        {
+            count = 1;
+        }
+
     }
 
     private void OnCollisionStay(Collision collision)
@@ -45,13 +53,15 @@ public class GoldNugget : MonoBehaviour
         if (collision.gameObject.tag == "Magnet")
         {
             isTouching = true;
+
         }
 
-        if(collision.gameObject.tag == "Ground")
+        if(collision.gameObject.tag == "Ground" && isTouching == true)
         {
             isTouching = false;
+            isActive = true;
             count = 1;
-            magnetScript.maxHold = magnetScript.maxHold - 1;
+            magnetScript.maxHold = magnetScript.maxHold - count;
         }
     }
 
