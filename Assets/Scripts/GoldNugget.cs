@@ -6,9 +6,11 @@ public class GoldNugget : MonoBehaviour
     public int count = 1;
     public bool isActive = true;
     public bool isTouching = false;
-    public bool groundTouch = false;
     public Magnet magnetScript;
     public GameObject magnet;
+
+    public MagnetPoint mgPointScript;
+    public GameObject magnetPoint;
 
     // Update is called once per frame
 
@@ -17,7 +19,8 @@ public class GoldNugget : MonoBehaviour
         magnet = GameObject.Find("Magnet");
         magnetScript = magnet.GetComponent<Magnet>();
 
-        
+        magnetPoint = GameObject.Find("MagnetPoint");
+        mgPointScript = magnetPoint.GetComponent<MagnetPoint>();
 
     }
     private void Update()
@@ -35,7 +38,6 @@ public class GoldNugget : MonoBehaviour
         {
             count = 1;
         }
-
     }
 
     private void OnCollisionStay(Collision collision)
@@ -45,7 +47,6 @@ public class GoldNugget : MonoBehaviour
             isActive = false;
             count = 0;
         }
-
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -53,7 +54,6 @@ public class GoldNugget : MonoBehaviour
         if (collision.gameObject.tag == "Magnet")
         {
             isTouching = true;
-
         }
 
         if(collision.gameObject.tag == "Ground" && isTouching == true)
@@ -62,8 +62,9 @@ public class GoldNugget : MonoBehaviour
             isActive = true;
             count = 1;
             magnetScript.maxHold = magnetScript.maxHold - count;
+
         }
     }
 
-    //on collisition enter and if is touching is false, 
+
 }

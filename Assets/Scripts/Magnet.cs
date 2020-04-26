@@ -5,6 +5,7 @@ public class Magnet : MonoBehaviour
     public float moveSpeed = 5f;
     private GoldNugget goldScript;
     public float maxHold = 0f;
+    public bool maxReached = false;
 
     private GameObject magnetpoint;
     private MagnetPoint margnetPointScript;
@@ -21,17 +22,17 @@ public class Magnet : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
-        Vector3 movement = new Vector3(moveHorizontal, 0f, moveVertical);
+        Vector3 movement = new Vector3(moveHorizontal, moveVertical, 0f);
 
         transform.Translate(movement * Time.deltaTime * moveSpeed);
 
-        /*if (maxHold >= 6f)
+        if(maxHold == 6)
         {
-            margnetPointScript = magnetpoint.GetComponent<MagnetPoint>();
-            margnetPointScript.sphere.enabled = false;
+            maxReached = true;
+        } else if (maxHold < 6)
+        {
+            maxReached = false;
         }
-        */
-
 
     }
 
@@ -40,8 +41,6 @@ public class Magnet : MonoBehaviour
         if (collision.gameObject.tag == "Gold")
         {
             goldScript = collision.gameObject.GetComponent<GoldNugget>();
-
-            //goldScript.rb.constraints = RigidbodyConstraints.FreezeAll;
 
             maxHold = maxHold + goldScript.count;
             goldScript.isActive = false;
