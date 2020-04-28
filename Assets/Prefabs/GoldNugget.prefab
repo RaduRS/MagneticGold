@@ -126,4 +126,8 @@ MonoBehaviour:
   rb: {fileID: 1646321690931377343}
   count: 1
   isActive: 1
-  transform: {fileID: 1646321690931377339}
+  isTouching: 0
+  magnetScript: {fileID: 0}
+  magnet: {fileID: 0}
+  mgPointScript: {fileID: 0}
+  magnetPoint: {fileID: 0}
