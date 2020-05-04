@@ -5,7 +5,6 @@ using UnityEngine;
 public class MagnetPoint : MonoBehaviour
 {
     public float forceFactor = 0f;
-    public float antiForce = -25000f;
     public SphereCollider sphere;
     List<Rigidbody> rbGoldNuggets = new List<Rigidbody>();
 
