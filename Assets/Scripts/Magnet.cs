@@ -14,7 +14,25 @@ public class Magnet : MonoBehaviour
     private void Start()
     {
         magnetpoint = GameObject.Find("MagnetPoint");
+        margnetPointScript = magnetpoint.GetComponent<MagnetPoint>();
     }
+
+
+    private void Update()
+    {
+        /*
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            moveSpeed = 30f;
+            margnetPointScript.forceFactor = 50000f;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            moveSpeed = 10f;
+        }
+        */
+    }
+
 
     // Update is called once per frame
     private void FixedUpdate()
@@ -32,6 +50,11 @@ public class Magnet : MonoBehaviour
         } else if (maxHold < 6)
         {
             maxReached = false;
+        }
+
+        if(maxHold <= 0)
+        {
+            maxHold = Mathf.Clamp(maxHold, 0, Mathf.Infinity);
         }
 
     }
